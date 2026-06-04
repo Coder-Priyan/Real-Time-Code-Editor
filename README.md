@@ -1,55 +1,121 @@
 # Real-Time Code Editor
 
-A collaborative real-time code editor built using React, Node.js, Express, Socket.IO, and CodeMirror. This application allows multiple users to join the same room, write code together, and see updates instantly. It also supports code execution for JavaScript and Python directly from the editor.
+## Project Overview
+
+Real-Time Code Editor is a web-based collaborative coding platform developed using React, Node.js, Express, Socket.IO, and CodeMirror. The application allows multiple users to join the same room and edit code simultaneously with real-time synchronization.
+
+The main objective of this project is to demonstrate how real-time communication works using WebSockets and how multiple users can collaborate on code within a shared environment.
+
+---
 
 ## Features
 
 * Real-time collaborative code editing
-* Unique room-based collaboration
+* Room-based collaboration system
+* Unique Room ID generation
 * Instant code synchronization using Socket.IO
-* JavaScript code execution
-* Python code execution
-* User join and leave notifications
+* Live user join and leave notifications
 * Copy Room ID functionality
-* Clean and responsive interface
+* JavaScript code execution support
+* Python code execution support
+* Multi-user collaboration environment
+* Responsive and user-friendly interface
 
-## Tech Stack
+---
 
-### Frontend
+## Technologies Used
 
 * React.js
-* React Router
-* CodeMirror
-* Socket.IO Client
-
-### Backend
-
 * Node.js
 * Express.js
 * Socket.IO
+* CodeMirror
+* JavaScript
+* HTML
+* CSS
 
-## Project Workflow
+---
 
-1. User creates or joins a room.
-2. Socket connection is established with the server.
-3. Code changes are emitted through Socket.IO events.
-4. Server broadcasts updates to all users in the room.
-5. New users receive the latest code automatically.
-6. Users can execute JavaScript or Python code and view results in real time.
+## System Workflow
+
+1. User creates or joins a room using a unique Room ID.
+2. Socket.IO establishes a real-time connection between client and server.
+3. Users write code inside the CodeMirror editor.
+4. Code changes are emitted to the server through WebSocket events.
+5. The server broadcasts updates to all users in the same room.
+6. New users automatically receive the latest code state.
+7. Users can execute JavaScript or Python code and view output instantly.
+
+### Flow Diagram
+
+```text
+User
+    ↓
+React Frontend
+    ↓
+Socket.IO Client
+    ↓
+Socket.IO Server
+    ↓
+Broadcast to Room
+    ↓
+Connected Users
+```
+
+---
+
+## Project Structure
+
+```text
+Real-Time-Code-Editor/
+│
+├── server.js
+├── package.json
+├── public/
+│
+├── src/
+│   ├── Actions.js
+│   ├── socket.js
+│   │
+│   ├── components/
+│   │   └── Editor.js
+│   │
+│   ├── pages/
+│   │   ├── Home.js
+│   │   └── EditorPage.js
+│   │
+│   └── App.js
+│
+├── build/
+├── README.md
+└── .gitignore
+```
+
+---
 
 ## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Coder-Priyan/Real-Time-Code-Editor.git
+
+cd Real-Time-Code-Editor
+```
+
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Start Frontend
+### Run Frontend
 
 ```bash
 npm run start:front
 ```
 
-### Start Backend
+### Run Backend
 
 ```bash
 npm run server:dev
@@ -61,14 +127,116 @@ npm run server:dev
 npm start
 ```
 
+### Open Browser
+
+```text
+http://localhost:3000
+```
+
+or
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Sample Usage
+
+### Create Room
+
+```text
+Click "Create New Room"
+↓
+Generate Room ID
+↓
+Enter Username
+↓
+Join Room
+```
+
+### Real-Time Collaboration
+
+```text
+User A types code
+↓
+Socket Event Triggered
+↓
+Server Receives Update
+↓
+Broadcast to Room
+↓
+User B Sees Changes Instantly
+```
+
+---
+
+## Socket Events
+
+### Join Room
+
+```text
+JOIN
+```
+
+### Code Synchronization
+
+```text
+CODE_CHANGE
+SYNC_CODE
+```
+
+### User Connection Management
+
+```text
+JOINED
+DISCONNECTED
+```
+
+### Code Execution
+
+```text
+RUN_JAVASCRIPT
+RUN_PYTHON
+OUTPUT
+```
+
+---
+
+## Learning Outcomes
+
+* Understanding WebSockets
+* Real-Time Communication
+* Socket.IO Event Handling
+* React Component Architecture
+* State Management
+* Client-Server Communication
+* Room-Based Collaboration Systems
+* Full Stack Web Development
+
+---
+
 ## Future Enhancements
 
-* Multi-language support
-* Voice collaboration
-* Code version history
-* User authentication
-* Syntax error highlighting
+* Authentication System
+* User Profiles
+* Code History Tracking
+* Multi-language Compiler Support
+* Voice Collaboration
+* Video Calling Integration
+* Syntax Error Highlighting
+* Cloud-Based Storage
 
-## Author
+---
 
-Priyanshu Dangi
+## Contributors
+
+* Priyanshu Dangi
+* Akansha Joshi
+* Deepak Kumar Kabi
+
+---
+
+## License
+
+This project is developed for educational and academic purposes.
